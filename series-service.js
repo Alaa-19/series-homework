@@ -13,6 +13,13 @@ export const getLastSeasonNumber=(show)=>
 };
 
 
+export const getNextSeasonYear=(show)=>
+    {
+        return show?.nextSeason?.year??"No announcement";
+
+    }
+
+   
 
  
 
