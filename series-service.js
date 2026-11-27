@@ -57,6 +57,9 @@ export const sortByStartYear = (series) =>
     return [...series].sort((a, b) => a.startYear - b.startYear);
 };
 
+
+// C
+
 export const renameSeries = (series, id, newTitle) =>
 {
     return series.map(item =>
