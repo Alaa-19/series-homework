@@ -57,6 +57,46 @@ export const sortByStartYear = (series) =>
     return [...series].sort((a, b) => a.startYear - b.startYear);
 };
 
+export const renameSeries = (series, id, newTitle) =>
+{
+    return series.map(item =>
+        item.id === id
+            ? { ...item, title: newTitle }
+            : item
+    );
+};
+
+export const addSeason = (series, id, season) =>
+{
+    return series.map(item =>
+        item.id === id
+            ? {
+                ...item,
+                seasons: [...(item.seasons ?? []), season]
+              }
+            : item
+    );
+};
+
+export const addEpisode = (series, showId, seasonNumber, episode) =>
+{
+    return series.map(show =>
+        show.id === showId
+            ? {
+                ...show,
+                seasons: show.seasons.map(season =>
+                    season.number === seasonNumber
+                        ? {
+                            ...season,
+                            episodes: [...season.episodes, episode]
+                        }
+                        : season
+                )
+            }
+            : show
+    );
+};
+
  
 
  
